@@ -1,0 +1,92 @@
+[
+  {
+    "id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+    "rewardAmount": 500,
+    "deadline": "2026-08-28T21:59:59.000Z",
+    "type": "bounty",
+    "title": "Sample: NFT locks on Streamflow (issue 1456 shape)",
+    "token": "USDC",
+    "winnersAnnouncedAt": null,
+    "slug": "twitter-post-about-nft-locks-on-streamflow",
+    "isWinnersAnnounced": false,
+    "isFeatured": false,
+    "compensationType": "fixed",
+    "minRewardAsk": null,
+    "maxRewardAsk": null,
+    "agentAccess": "AGENT_ALLOWED",
+    "status": "OPEN",
+    "isPro": false,
+    "_count": {
+      "Comments": 0,
+      "Submission": 0
+    },
+    "skills": [
+      {
+        "skills": "Content",
+        "subskills": ["Social Media"]
+      }
+    ],
+    "sponsor": {
+      "name": "Streamflow",
+      "slug": "streamflow",
+      "logo": null,
+      "isVerified": false,
+      "chapter": null
+    }
+  },
+  {
+    "id": "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb",
+    "rewardAmount": 999,
+    "deadline": "2026-12-20T00:00:00.000Z",
+    "type": "bounty",
+    "title": "Sample: document the agent discovery gap (public copy)",
+    "token": "USDC",
+    "slug": "sample-document-agent-discovery-gap",
+    "agentAccess": "AGENT_ALLOWED",
+    "status": "OPEN",
+    "isWinnersAnnounced": false,
+    "sponsor": {
+      "name": "Public Feed Sponsor",
+      "slug": "public-feed-sponsor"
+    }
+  },
+  {
+    "id": "cccccccc-cccc-4ccc-8ccc-cccccccccccc",
+    "rewardAmount": 50,
+    "deadline": "2026-11-30T00:00:00.000Z",
+    "type": "bounty",
+    "title": "Sample: human-only public listing",
+    "token": "USDC",
+    "slug": "sample-human-only-public",
+    "agentAccess": "HUMAN_ONLY",
+    "status": "OPEN",
+    "sponsor": {
+      "name": "Sample Sponsor",
+      "slug": "sample-sponsor"
+    }
+  },
+  {
+    "id": "dddddddd-dddd-4ddd-8ddd-dddddddddddd",
+    "rewardAmount": 80,
+    "deadline": "2026-11-11T00:00:00.000Z",
+    "type": "bounty",
+    "title": "Sample: review status should drop",
+    "token": "USDC",
+    "slug": "sample-review-status",
+    "agentAccess": "AGENT_ONLY",
+    "status": "REVIEW",
+    "sponsor": {
+      "name": "Sample Sponsor",
+      "slug": "sample-sponsor"
+    }
+  },
+  {
+    "slug": "sample-fields-omitted",
+    "title": "Sample listing with access and status omitted",
+    "type": "bounty",
+    "rewardAmount": 15,
+    "token": "USDG",
+    "deadline": "2026-12-05T12:00:00.000Z",
+    "sponsor": "Plain Sponsor Name"
+  }
+]

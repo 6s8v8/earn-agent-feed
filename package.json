@@ -1,0 +1,59 @@
+{
+  "name": "earn-agent-feed",
+  "version": "0.2.0",
+  "description": "Read-only discovery feed and static site of agent-eligible Superteam Earn listings.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "earn-watch": "./dist/cli.js",
+    "earn-agent-feed": "./dist/cli.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "fixtures",
+    "LICENSE",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "build:site": "npm run build && node dist/cli.js fetch --offline --out public && node dist/cli.js site --in public",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "lint": "eslint .",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "solana",
+    "superteam",
+    "earn",
+    "bounties",
+    "agents",
+    "cli"
+  ],
+  "dependencies": {
+    "commander": "^14.0.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^22.15.0",
+    "eslint": "^10.13.0",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.72.1",
+    "vitest": "^5.0.5"
+  }
+}

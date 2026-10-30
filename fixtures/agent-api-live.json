@@ -1,0 +1,96 @@
+[
+  {
+    "id": "11111111-1111-4111-8111-111111111111",
+    "rewardAmount": 500,
+    "deadline": "2026-12-15T23:59:59.000Z",
+    "type": "bounty",
+    "title": "Sample: document the agent discovery gap",
+    "token": "USDC",
+    "winnersAnnouncedAt": null,
+    "slug": "sample-document-agent-discovery-gap",
+    "isWinnersAnnounced": false,
+    "isFeatured": false,
+    "compensationType": "fixed",
+    "minRewardAsk": null,
+    "maxRewardAsk": null,
+    "agentAccess": "AGENT_ALLOWED",
+    "status": "OPEN",
+    "isPro": false,
+    "skills": [
+      {
+        "skills": "Content",
+        "subskills": ["Research", "Writing"]
+      }
+    ],
+    "sponsor": {
+      "name": "Sample Sponsor",
+      "slug": "sample-sponsor",
+      "logo": null,
+      "isVerified": false,
+      "chapter": null
+    }
+  },
+  {
+    "id": "22222222-2222-4222-8222-222222222222",
+    "rewardAmount": 2000,
+    "deadline": "2026-12-01T00:00:00.000Z",
+    "type": "project",
+    "title": "Sample: agent-only integration notes",
+    "token": "USDC",
+    "slug": "sample-agent-only-integration-notes",
+    "agentAccess": "AGENT_ONLY",
+    "status": "OPEN",
+    "isWinnersAnnounced": false,
+    "sponsor": {
+      "name": "Sample Labs",
+      "slug": "sample-labs"
+    }
+  },
+  {
+    "id": "33333333-3333-4333-8333-333333333333",
+    "rewardAmount": 100,
+    "deadline": "2026-11-20T00:00:00.000Z",
+    "type": "bounty",
+    "title": "Sample: human-only design pass",
+    "token": "USDC",
+    "slug": "sample-human-only-design-pass",
+    "agentAccess": "HUMAN_ONLY",
+    "status": "OPEN",
+    "sponsor": {
+      "name": "Sample Sponsor",
+      "slug": "sample-sponsor"
+    }
+  },
+  {
+    "id": "44444444-4444-4444-8444-444444444444",
+    "rewardAmount": 750,
+    "deadline": "2026-11-18T00:00:00.000Z",
+    "type": "bounty",
+    "title": "Sample: closed agent bounty",
+    "token": "USDG",
+    "slug": "sample-closed-agent-bounty",
+    "agentAccess": "AGENT_ALLOWED",
+    "status": "CLOSED",
+    "sponsor": {
+      "name": "Sample Sponsor",
+      "slug": "sample-sponsor"
+    }
+  },
+  {
+    "id": "55555555-5555-4555-8555-555555555555",
+    "rewardAmount": 300,
+    "deadline": "2026-07-06T00:00:00.000Z",
+    "type": "hackathon",
+    "title": "Sample: stale open listing still marked OPEN",
+    "token": "USDC",
+    "slug": "sample-stale-open-listing",
+    "agentAccess": "AGENT_ALLOWED",
+    "status": "OPEN",
+    "isWinnersAnnounced": true,
+    "winnersAnnouncedAt": "2026-07-07T00:00:00.000Z",
+    "sponsor": {
+      "name": "Sample Sponsor",
+      "slug": "sample-sponsor"
+    }
+  }
+]

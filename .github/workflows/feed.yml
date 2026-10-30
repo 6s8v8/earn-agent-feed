@@ -1,0 +1,91 @@
+# Manual publish while this repository is private.
+# This workflow does not enable GitHub Pages and does not change repository visibility.
+# There is no schedule. Add a cron only after the owner decides to publish.
+# EARN_AGENT_API_KEY is optional. It is read from the Actions secret and is never echoed.
+# When the secret is unset, the agent source stays the recorded fixture and the
+# public listings endpoint is still requested.
+
+name: Publish feed
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: fetch and deploy
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Restore previous snapshot
+        uses: actions/cache/restore@v4
+        with:
+          path: public/snapshot.json
+          key: earn-feed-snapshot-${{ github.run_id }}
+          restore-keys: |
+            earn-feed-snapshot-
+
+      - name: Fetch listings
+        env:
+          EARN_AGENT_API_KEY: ${{ secrets.EARN_AGENT_API_KEY }}
+        run: node dist/cli.js fetch --out public
+
+      - name: Build site
+        run: node dist/cli.js site --in public
+
+      - name: Confirm the API key is absent from the site
+        env:
+          EARN_AGENT_API_KEY: ${{ secrets.EARN_AGENT_API_KEY }}
+        run: |
+          if [ -z "$EARN_AGENT_API_KEY" ]; then
+            echo "EARN_AGENT_API_KEY is unset. Agent source falls back to the recorded fixture. Public listings are still requested."
+            exit 0
+          fi
+          if grep -R -q -F -- "$EARN_AGENT_API_KEY" public; then
+            echo "Refusing to publish: the API key appeared in the site output."
+            exit 1
+          fi
+          echo "API key was not written to the site output."
+
+      - name: Save snapshot for the next run
+        uses: actions/cache/save@v4
+        with:
+          path: public/snapshot.json
+          key: earn-feed-snapshot-${{ github.run_id }}
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
